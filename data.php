@@ -12,9 +12,10 @@ if(!isset($stationnaar)){
 
 if(isset($x) && isset($y)){
      $stationvan = getClosestStation($x,$y);
+//     echo $stationvan;   
      $stationnaar = "gent dampoort";
      $treindatgemoetpakken = getConnection($stationvan,$stationnaar);
-     var_dump($connectie);
+     var_dump($treindatgemoetpakken);
 
 }
 //echo "Commit test van Batist";
