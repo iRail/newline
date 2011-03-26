@@ -1,0 +1,7 @@
+<?php
+  /**
+   * Awesome newline script
+   */
+
+
+?>

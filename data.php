@@ -1,5 +1,8 @@
 <?php
-echo "newline.irail.be";
+  //echo "newline.irail.be";
+
+
+
  // http:// ... /index.php?x=3.1415&y=51
 extract($_GET);
 include("datalayer.php");
@@ -14,5 +17,5 @@ if(isset($x) && isset($y)){
      var_dump($connectie);
 
 }
-echo "Commit test van Batist";
+//echo "Commit test van Batist";
 ?>
