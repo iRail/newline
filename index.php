@@ -1,18 +1,34 @@
-<?php
-echo "newline.irail.be";
- // http:// ... /index.php?x=3.1415&y=51
-extract($_GET);
-include("datalayer.php");
-if(!isset($stationnaar)){
-     $stationnaar = "schaarbeek";
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<div id="GeoAPI"></div>
+<script language="Javascript">
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+        getIRailRoute(position.coords.latitude, position.coords.longitude);
+  });
+}
+else {
+  if (document.getElementById("GeoAPI")) {
+    document.getElementById("GeoAPI").innerHTML = "I'm sorry but geolocation services are not supported by your browser";
+    document.getElementById("GeoAPI").style.color = "#FF0000";
+  }
 }
 
-if(isset($x) && isset($y)){
-     $stationvan = getClosestStation($x,$y);
-     $stationnaar = "gent dampoort";
-     $treindatgemoetpakken = getConnection($stationvan,$stationnaar);
-     var_dump($connectie);
+function getIRailRoute(mylat, mylong) {
+
+        $('#result').load('data.php?x=' + mylong + '&y=' + mylat, function() {
+                alert('Load was performed.');
+                
+        });
 
 }
-echo "Commit test van Batist";
-?>
+
+</script>
+
+</head>
+<body>
+</body>
+</html>
