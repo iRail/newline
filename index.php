@@ -20,7 +20,7 @@ else {
 function getIRailRoute(mylat, mylong) {
 
         $('#result').load('data.php?x=' + mylong + '&y=' + mylat, function() {
-                alert('Load was performed.');
+
 
         });
 

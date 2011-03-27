@@ -4,22 +4,23 @@
    */
 
 function getClosestStation($x,$y){
-     $r = new HttpRequest('http://api.irail.be/stations/?lang=NL&format=json', HttpRequest::METH_GET);
-     try {
-	  $r->send();
-	  if ($r->getResponseCode() == 200) {
-	       $json = json_decode($r->getResponseBody(),true);
-	       return calculateClosest($json["station"],$x,$y);
-	  }
-     } catch (HttpException $ex) {
-	  echo $ex;
-     }
-  }
+    $r = new HttpRequest('http://api.irail.be/stations/?lang=NL&format=json', HttpRequest::METH_GET);
+
+    try {
+	    $r->send();
+	    if ($r->getResponseCode() == 200) {
+	        $json = json_decode($r->getResponseBody(),true);
+
+	        return calculateClosest($json["station"],$x,$y);
+	    }
+	    echo "nops";
+    } catch (HttpException $ex) {
+        echo $ex;
+    }
+}
 
 function getConnection($stationvan,$stationnaar){
      $url = 'http://api.irail.be/connections/?lang=NL&format=json&from=' . urlencode($stationvan) . '&to=' . urlencode($stationnaar);
-
-     //echo $url;
 
      $r = new HttpRequest($url, HttpRequest::METH_GET);
      try {
@@ -42,14 +43,12 @@ function calculateClosest($stations,$x,$y){
      $dismin = 999999;
 
      foreach($stations as $station){
-	  $dis = distance($x,$y,$station["locationX"], $station["locationY"]);
+	      $dis = distance($x,$y,$station["locationX"], $station["locationY"]);
 
-	  if( $dis< $dismin){
-	       $dismin = $dis;
-	       $statmin =  $station["name"];
-	  }
-
-
+	      if( $dis< $dismin){
+	           $dismin = $dis;
+	           $statmin =  $station["name"];
+	      }
      }
      return $statmin;
 }
