@@ -18,7 +18,7 @@ if(isset($x) && isset($y)){
      //var_dump($treindatgemoetpakken);
 
      echo "<pre>";
-     print_r($json);
+     print_r($treindatgemoetpakken);
      echo "</pre>";
 }
 //echo "Commit test van Batist";
