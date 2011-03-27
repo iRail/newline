@@ -17,7 +17,10 @@ if(isset($x) && isset($y)){
      $treindatgemoetpakken = getConnection($stationvan,$stationnaar);
      //var_dump($treindatgemoetpakken);
      $json = json_decode($treindatgemoetpakken, true);
+
+     echo "<pre>";
      print_r($json);
+     echo "</pre>";
 }
 //echo "Commit test van Batist";
 ?>
