@@ -2,7 +2,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-<div id="GeoAPI"></div>
+<div id="result"></div>
 <script language="Javascript">
 
 if (navigator.geolocation) {
@@ -21,7 +21,7 @@ function getIRailRoute(mylat, mylong) {
 
         $('#result').load('data.php?x=' + mylong + '&y=' + mylat, function() {
                 alert('Load was performed.');
-                
+
         });
 
 }
@@ -32,3 +32,4 @@ function getIRailRoute(mylat, mylong) {
 <body>
 </body>
 </html>
+
